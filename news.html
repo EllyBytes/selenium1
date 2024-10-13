@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="icon" href="./files/logo.png">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">   
+    <link rel="stylesheet"
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <style>
+        h1{
+            color: aliceblue;
+            margin: 2%;
+
+            
+        }
+    </style>
+</head>
+
+<body class="contactbody">
+          
+
+        <section >
+            <div class="container">
+                <div id="articles-container" 
+                class="articles-container" 
+                style="padding:2% 0; color: aliceblue; display: flex; flex-wrap:wrap;justify-content:center;">
+               <!-- Articles will be inserted here -->
+           </div>
+            </div>
+        
+            <script>
+                // Example API URL (replace with your own API)
+                const apiURL = 'https://y-eight-rho.vercel.app/?vercelToolbarCode=EmKICTfb5zkChkf';
+            
+                // Function to fetch data using Fetch API
+                function fetchArticles() {
+                    fetch(apiURL, { mode: 'cors' }) // Adjust mode if needed
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(`Network response was not ok: ${response.statusText}`);
+                            }
+                            return response.json(); // Convert response to JSON
+                        })
+                        .then(data => {
+                            const articles = data.articles;
+                            displayArticles(articles);
+                        })
+                        .catch(error => {
+                            console.error('Error fetching data:', error);
+                        });
+                }
+            
+                // Function to display articles
+                function displayArticles(articles) {
+                    const articlesContainer = document.getElementById('articles-container');
+                    let htmlContent = ''; // Build HTML string
+            
+                    articles.forEach(article => {
+                        
+                        htmlContent += `
+                            <div class="article-card"style="
+        background: rgba(255, 255, 255, 0.2); 
+        backdrop-filter: blur(10px); 
+        border-radius: 15px; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+        padding: 20px; 
+        margin: 10px; 
+        width: 300px; 
+        color: #fff; position :relative;" >
+                
+                                <div >
+                                    <h1>${article.title}</h1>
+                                    <a href="${article.link}" target="_blank">Read more</a>
+                                    <p class="time">${article.time}</p>
+                                </div>
+                            </div>
+                        `;
+                        
+                    });
+            
+                    // Set the innerHTML once for better performance
+                    articlesContainer.innerHTML = htmlContent;
+                }
+            
+                // Fetch articles when the page loads
+                fetchArticles();
+            </script>
+            
+           
+            
+        </section>
+
+<!-- Footer -->
+
+<section class="footer">
+    <div class="foot">
+        <div class="footer-content">
+            
+            <div class="footlinks">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="./contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footlinks">
+                <h4>Connect</h4>
+                <div class="social">
+                    <a href="" target="_blank"><i class='bx bxl-facebook'></i></a>
+                    <a href="" target="_blank"><i class='bx bxl-instagram' ></i></a>
+                    <a href="" target="_blank"><i class='bx bxl-linkedin' ></i></a>
+                    <a href="" target="_blank"><i class='bx bxl-youtube' ></i></a>
+                   
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="end">
+        <p>Copyright © 2022 Firstflight Travels All Rights Reserved.<br></p>
+    </div>
+</section>
+
+</body>
+</html>

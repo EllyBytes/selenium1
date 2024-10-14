@@ -15,37 +15,30 @@
     <style>
         h1{
             color: aliceblue;
-            margin: 2%;
-
-            
+            margin: 2%;         
         }
     </style>
 </head>
 
 <body class="contactbody">
-          
-
+  
         <section >
             <div class="container">
                 <div id="articles-container" 
                 class="articles-container" 
                 style="padding:2% 0; color: aliceblue; display: flex; flex-wrap:wrap;justify-content:center;">
-               <!-- Articles will be inserted here -->
            </div>
             </div>
         
             <script>
-                // Example API URL (replace with your own API)
                 const apiURL = 'https://y-eight-rho.vercel.app/?vercelToolbarCode=EmKICTfb5zkChkf';
-            
-                // Function to fetch data using Fetch API
                 function fetchArticles() {
-                    fetch(apiURL, { mode: 'cors' }) // Adjust mode if needed
+                    fetch(apiURL, { mode: 'cors' }) 
                         .then(response => {
                             if (!response.ok) {
                                 throw new Error(`Network response was not ok: ${response.statusText}`);
                             }
-                            return response.json(); // Convert response to JSON
+                            return response.json();
                         })
                         .then(data => {
                             const articles = data.articles;
@@ -55,11 +48,9 @@
                             console.error('Error fetching data:', error);
                         });
                 }
-            
-                // Function to display articles
                 function displayArticles(articles) {
                     const articlesContainer = document.getElementById('articles-container');
-                    let htmlContent = ''; // Build HTML string
+                    let htmlContent = '';
             
                     articles.forEach(article => {
                         
@@ -83,12 +74,8 @@
                         `;
                         
                     });
-            
-                    // Set the innerHTML once for better performance
                     articlesContainer.innerHTML = htmlContent;
                 }
-            
-                // Fetch articles when the page loads
                 fetchArticles();
             </script>
             
@@ -105,17 +92,18 @@
             <div class="footlinks">
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="./contact.html">Contact Us</a></li>
+                    <li><a href="./news.html"><b>News</b></a></li>
+                    <li><a href="./contact.html"><b>Contact Us</b></a></li>
                 </ul>
             </div>
 
             <div class="footlinks">
                 <h4>Connect</h4>
                 <div class="social">
-                    <a href="" target="_blank"><i class='bx bxl-facebook'></i></a>
-                    <a href="" target="_blank"><i class='bx bxl-instagram' ></i></a>
-                    <a href="" target="_blank"><i class='bx bxl-linkedin' ></i></a>
-                    <a href="" target="_blank"><i class='bx bxl-youtube' ></i></a>
+                    <a href="https://www.facebook.com/"><i class='bx bxl-facebook'></i></a>
+                    <a href="https://www.instagram.com/" ><i class='bx bxl-instagram' ></i></a>
+                    <a href="https://x.com/?lang=en-in" ><i class='bx bxl-twitter' ></i></a>
+                    <a href="https://www.youtube.com/"><i class='bx bxl-youtube' ></i></a>
                    
                 </div>
             </div>
@@ -124,7 +112,7 @@
     </div>
 
     <div class="end">
-        <p>Copyright © 2022 Firstflight Travels All Rights Reserved.<br></p>
+        <p>Abhijit and Eileen Productions<br></p>
     </div>
 </section>
 

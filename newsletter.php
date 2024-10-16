@@ -1,11 +1,9 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
   
-    $myname = htmlspecialchars(trim($_POST['myname']));
-    $email = htmlspecialchars(trim($_POST['email']));
-    $subject = htmlspecialchars(trim($_POST['subject']));
-    $message = htmlspecialchars(trim($_POST['message']));
-
+  
+   $email = htmlspecialchars(trim($_POST['email']));
+ 
     
     // Database connection
     $conn = new mysqli('localhost', 'root', 'root', 'contact_database');
@@ -16,12 +14,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     
-    $stmt = $conn->prepare("INSERT INTO user (myname, email, subject, message) VALUES (?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO newsletter (email) VALUES (?)");
     if ($stmt) {
-        $stmt->bind_param("ssss", $myname, $email, $subject, $message);
+        $stmt->bind_param("s", $email);
         
         if ($stmt->execute()) {
-            echo "Your message has been submitted successfully!";
+            echo "Thanks for Subscribing us!";
         } else {
             echo "Error submitting your message. Please try again.";
         }
